@@ -12160,7 +12160,7 @@ label {
 
 @media all and (max-width: 375px) {
   .page-header {
-    height: calc(100vh + 270px);
+    height: calc(100vh + 70px);
   }
 
   .index-page {
