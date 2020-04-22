@@ -1,3 +1,37 @@
+const toggleModal = () => {
+    modal.classList.toggle("show-modal-feby");
+};
+
+const toggleModal2 = () => {
+    modal2.classList.toggle("show-modal-feby");
+};
+
+const getStatusTiket = async (event) => {
+  let $ = (id) => document.getElementById(id);
+  let tiketElem = $('tiket');
+  let parkirElem = $('parkir');
+  let id = tiketElem.value ;
+  let parkir = parkirElem.value;
+
+  let result = await fetch(`https://smartparking-reksti.herokuapp.com/tiket/${id}`);
+  let json = await result.json();
+
+  let result2 = await fetch(`https://smartparking-reksti.herokuapp.com/parkiran/${parkir}`);
+  let json2 = await result2.json();
+
+  if(json.status == "keluar"){
+    toggleModal();
+  }
+  else {
+    if (json2.availability == true){
+      toggleModal2();
+    }
+    else{
+      keluar();
+    }
+  }  
+};
+
 const keluar = async () => {
 
 

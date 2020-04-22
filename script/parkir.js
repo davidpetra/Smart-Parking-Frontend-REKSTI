@@ -1,3 +1,32 @@
+const toggleModal = () => {
+    modal.classList.toggle("show-modal-feby");
+};
+
+const getStatusSlot = async (event) => {
+  let $ = (id) => document.getElementById(id);
+  let pilihanElem = $('pilihan');
+  let id = pilihanElem.value ;
+  console.log('id');
+  console.log(id);
+
+  let result = await fetch(`https://smartparking-reksti.herokuapp.com/parkiran/${id}`);
+  console.log(result);
+  let json = await result.json();
+  console.log('json');
+  console.log(json);
+  console.log('json avail');
+  console.log(json.availability);
+
+  if(json.availability == false){
+    console.log('json avail false');
+    toggleModal();
+  }
+  else {
+    console.log('json avail true');
+    updateSlot();
+  } 
+};
+
 const parkir = async () => {
 
   // console.log("yuhu");
@@ -17,12 +46,6 @@ const parkir = async () => {
     console.log(data);
     window.localStorage.setItem('idTiket', data.result.id_tiket);
   })
-  // console.log("yuhu2");
-  // // console.log(" before idTiket");
-  
-  // // console.log(idTiket);
-  // console.log(" after idTiket");
-
 
 let urlPart = window.location.href.split('/');
 window.location = urlPart.splice(0, urlPart.length-1).join('/') + '/pilihparkir.html';
@@ -33,12 +56,9 @@ const getTiket = async () => {
   let id = window.localStorage.getItem('idTiket');
   let result = await fetch(`https://smartparking-reksti.herokuapp.com/tiket/${id}`);
   console.log(result);
-  //let result = await fetch('https://smartparking-reksti.herokuapp.com/tiket/34');
   let json = await result.json();
   console.log(json);
   console.log(json.id_tiket);
-  // let item = json[0];
-  // console.log(item);
 
   let idElem = $('id_tiket');
   let jamElem = $('jam_masuk');
@@ -56,10 +76,6 @@ const getSlotParkir = async () => {
 
   let result = await fetch('https://smartparking-reksti.herokuapp.com/parkiran');
   let json = await result.json();
-
-  //let a1Elem = $('A1');
-
-  //untuk lantai 1 code A
 
   for (i = 1; i<11 ; i++){
     var str1 = "a"+i.toString()+"Elem = $('A'+ i.toString())"

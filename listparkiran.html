@@ -37,8 +37,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a href="javascript:;" class="btn btn-rose btn-raised btn-round ">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
               Masuk Parkir
             </a>
           </li>
@@ -48,12 +48,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="listparkiran.html" class="nav-link">
-              List Parkiran
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="listparkiran.html" class="nav-link">
+            <a href="javascript:;" class="btn btn-rose btn-raised btn-round">
               List Parkiran
             </a>
           </li>
@@ -61,43 +56,6 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-->
   </nav>
-  <div class="section">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-8 mx-auto text-center">
-          <h2>Tiket parkir</h2>
-          <h4>Berikut ini adalah tiket parkir anda</h4>
-          <!-- <a href="#" class="btn btn-primary btn-lg">
-            Masuk Parkir
-          </a> -->
-          <div class="row">
-            <div class="col-md-8 mx-auto text-center">
-              <b>ID Tiket:</b>
-            </div>
-            <div class="col-md-8 mx-auto text-center">
-              <input class="text-center" id="id_tiket">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 mx-auto text-center">
-              <b>Jam Masuk:</b>
-            </div>
-            <div class="col-md-8 mx-auto text-center">
-              <input class="text-center" id="jam_masuk">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 mx-auto text-center">
-              <b>Status:</b>
-            </div>
-            <div class="col-md-8 mx-auto text-center">
-              <input class="text-center" id="status">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> 
   <div class="section">
     <div class="container text-center">
       <div class="row">
@@ -149,51 +107,8 @@
       </div>
     </div>
   </div> 
-  <div class="section">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-8 mx-auto text-center">
-          <h2>Pilih Tempat Parkir</h2>
-          <h4>Tempat parkir pilihan anda adalah</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 mx-auto text-center">
-            <div class="form-group has-default text-center">
-              <input type="text" class="form-control text-center" id="pilihan" placeholder="Contoh: A01">
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 mx-auto text-center">
-          <button class="btn btn-primary btn-lg trigger-feby">
-              Pilih Lokasi Parkir
-          </button>
-          <!-- modal -->
-          <div class="modal-feby">
-            <div class="modal-content-feby">
-                <span class="close-button-feby">&times;</span>
-                <h3>Gagal</h3>
-                <h4>Parkiran penuh. Mohon pilih parkiran yang tersedia.</h4>
-            </div>
-          </div>
-          <!-- modal end -->
-        </div>
-      </div>
-    </div>
-  </div> 
-
 </body>
 <script>
-  window.onload = () => {getSlotParkir(); getTiket();}
+  window.onload = () => {getSlotParkir();}
 </script>
-<script>
-  var modal = document.querySelector(".modal-feby");
-    var trigger = document.querySelector(".trigger-feby");
-    var closeButton = document.querySelector(".close-button-feby");
-    trigger.addEventListener("click", getStatusSlot);
-    closeButton.addEventListener("click", toggleModal);
-</script>
-
 </html>

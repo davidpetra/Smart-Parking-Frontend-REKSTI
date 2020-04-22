@@ -47,6 +47,11 @@
               Keluar Parkir
             </a>
           </li>
+          <li class="nav-item">
+            <a href="listparkiran.html" class="nav-link">
+              List Parkiran
+            </a>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-->
@@ -72,14 +77,42 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-primary btn-lg" onclick="keluar()">
+         <!--  <button class="btn btn-primary btn-lg" onclick="keluar()"> -->
+          <button class="btn btn-primary btn-lg trigger-feby">
             Lanjut
           </button>
+          <!-- modal -->
+          <div class="modal-feby">
+            <div class="modal-content-feby">
+                <span class="close-button-feby">&times;</span>
+                <h3>Gagal</h3>
+                <h4>Tiket parkir sudah pernah dicetak keluar sebelumnya! Mohon pilih ID tiket lain.</h4>
+            </div>
+          </div>
+          <!-- modal end -->
+          <!-- modal -->
+          <div class="modal-feby2">
+            <div class="modal-content-feby">
+                <span class="close-button-feby2">&times;</span>
+                <h3>Gagal</h3>
+                <h4>Parkiran kosong.</h4>
+            </div>
+          </div>
+          <!-- modal end -->
         </div>
       </div>
     </div>
   </div>
   
 </body>
-
+<script>
+    var modal = document.querySelector(".modal-feby");
+    var modal2 = document.querySelector(".modal-feby2");
+    var trigger = document.querySelector(".trigger-feby");
+    var closeButton = document.querySelector(".close-button-feby");
+    var closeButton2 = document.querySelector(".close-button-feby2");
+    trigger.addEventListener("click", getStatusTiket);
+    closeButton.addEventListener("click", toggleModal);
+    closeButton2.addEventListener("click", toggleModal2);
+</script>
 </html>
